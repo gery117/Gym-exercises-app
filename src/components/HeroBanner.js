@@ -36,7 +36,7 @@ const HeroBanner = () => {
             }}
             fontSize="200px" 
             >
-                exercise boi!
+                exercise <br/> boi!
             </Typography>
             <img src= {HeroBannerImage} alt='banner' className='hero-banner-img'/>
         </Box>
