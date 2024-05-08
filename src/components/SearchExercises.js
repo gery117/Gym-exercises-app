@@ -16,7 +16,7 @@ const SearchExercises = ( { setExercises, bodyPart, setBodyPart }) => {
       setBodyParts(['all', ...bodyPartsData]);
     }
 
-    console.log(bodyParts);
+    // console.log(bodyParts);
     fetchExercisesData();
   }, [])
   
@@ -35,7 +35,7 @@ const SearchExercises = ( { setExercises, bodyPart, setBodyPart }) => {
         || exercise.bodyPart.toLowerCase()
       );
 
-      console.log(searchedExercises);
+      // console.log(searchedExercises);
 
       setSearch('')
       setExercises(searchedExercises);
