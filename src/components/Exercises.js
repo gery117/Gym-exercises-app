@@ -1,9 +1,37 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react';
+import Paginiation from '@mui/material/Pagination';
+import {Box, Stack, Typography} from '@mui/material';
 
-const Excercises = () => {
+import { exerciseOptions, fetchData} from '../utils/fetchData'
+import ExerciseCard from './ExerciseCard';
+
+const Exercises = ({exercises, setExercises, bodyPart}) => {
+  console.log(exercises);
   return (
-    <div>Excercises</div>
+    <Box id='exercises'
+      sx={{mt: {lg: '110px'}}}
+      mt='50px'
+      p="20px"
+    >
+      <Typography variant= "h4" mb="46px">
+        Showing Results
+      </Typography>
+      <Stack 
+        direction="row" 
+        sx={{gap: {lg: '110px', xs: '50px'}}}
+        flexWrap="wrap"
+        justifyContent="center"
+      >
+        {exercises.map((exercise, index)=>(
+          // <Box
+            // key= {exercise.id || exercise}
+          // >
+          <ExerciseCard key ={index} exercise={exercise}/>
+          // </Box>
+        ))}
+      </Stack>
+    </Box>
   )
 }
 
-export default Excercises
+export default Exercises
