@@ -3,9 +3,13 @@ import { Box, Typography, Stack } from '@mui/material'
 import BodyPart from './BodyPart'
 import ExerciseCard from './ExerciseCard'
 
-import {ScrollMenu, VisibilityContext} from 'react-horizontal-scrolling-menu';
-import RightArrowIcon from '../assets/icons/right-arrow.png';
-import LeftArrowIcon from '../assets/icons/left-arrow.png';
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+
+
+// import {ScrollMenu, VisibilityContext} from 'react-horizontal-scrolling-menu';
+// import RightArrowIcon from '../assets/icons/right-arrow.png';
+// import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
 
 
@@ -55,8 +59,25 @@ import LeftArrowIcon from '../assets/icons/left-arrow.png';
 //     )
 // }
 
+
+
 const HorizontalScrollbar = ({data, bodyPart, setBodyPart, isBodyParts}) => {
+
+    const slideLeft =() => {
+        let slider = document.getElementById('slider');
+        slider.scrollLeft = slider.scrollLeft - 500;
+    }
+    
+    const slideRight =() => {
+        let slider = document.getElementById('slider');
+        slider.scrollLeft = slider.scrollLeft + 500;
+    }
+
+
     return (
+        <div className='relative flex items-center'>
+            <FaArrowLeft className=' size-10 opacity-50 cursor-pointer hover:opacity-100' onClick={slideLeft}/>
+            <div id='slider' className='slider w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-8'>
                 <Stack direction='row' >
                     {data.map((item)=> (
                         <Box 
@@ -77,7 +98,10 @@ const HorizontalScrollbar = ({data, bodyPart, setBodyPart, isBodyParts}) => {
                         </Box>
                         )
                     )}
-                </Stack>    
+                </Stack>
+            </div>
+            <FaArrowRight className='size-10 opacity-50 cursor-pointer hover:opacity-100' onClick={slideRight}/>
+        </div>               
     )
 }
 

@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+    
+    
+    
     body {
         font-family: 'Josefin Sans';
         background-color: #FFFAFB;
@@ -141,4 +147,11 @@
         .exercise-card {
         width: 280px;
         }
+    }
+
+    @layer utilities {
+        .slider {
+            @apply w-full h-full overflow-x-scroll  whitespace-nowrap scroll-smooth scrollbar-hide px-8;
+        }
+
     }
