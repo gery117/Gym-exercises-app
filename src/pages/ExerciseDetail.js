@@ -6,6 +6,7 @@ import { exerciseOptions, fetchData, youtubeOptions} from '../utils/fetchData';
 import Detail from '../components/Detail';
 import ExerciseVideos from '../components/ExerciseVideos';
 import SimilarExercises from '../components/SimilarExercises';
+import SimilarEquipmentExercises from '../components/SimilarEquipmentExercises';
 
 
 const ExerciseDetail = () => {
@@ -48,6 +49,7 @@ const ExerciseDetail = () => {
         <Detail exerciseDetail={exerciseDetail}/>
         <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
         <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises}/>
+        <SimilarEquipmentExercises equipmentExercises={equipmentExercises}/>
     </Box>
   )
 }

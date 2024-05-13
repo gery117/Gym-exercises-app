@@ -149,9 +149,3 @@
         }
     }
 
-    @layer utilities {
-        .slider {
-            @apply w-full h-full overflow-x-scroll  whitespace-nowrap scroll-smooth scrollbar-hide px-8;
-        }
-
-    }

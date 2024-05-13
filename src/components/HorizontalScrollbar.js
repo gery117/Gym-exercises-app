@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useRef, useState} from 'react'
 import { Box, Typography, Stack } from '@mui/material'
 import BodyPart from './BodyPart'
 import ExerciseCard from './ExerciseCard'
@@ -59,25 +59,33 @@ import { FaArrowRight } from "react-icons/fa";
 //     )
 // }
 
+// const slideLeft =() => {
+//     let slider = document.getElementById('slider');
+//     slider.scrollLeft = slider.scrollLeft - 500;
+// }
 
+// const slideRight =() => {
+//     let slider = document.getElementById('slider');
+//     slider.scrollLeft = slider.scrollLeft + 500;
+// }
 
 const HorizontalScrollbar = ({data, bodyPart, setBodyPart, isBodyParts}) => {
-
-    const slideLeft =() => {
-        let slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft - 500;
-    }
     
-    const slideRight =() => {
-        let slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft + 500;
+    const [scrollPosition, setScrollPosition] = useState(0)
+    const containerRef = useRef()
+
+    const handleScroll = (scrollAmount) => {
+        const newScrollPosition = scrollPosition + scrollAmount;
+
+        setScrollPosition(newScrollPosition);
+        containerRef.current.scrollLeft= newScrollPosition;
     }
 
 
     return (
         <div className='relative flex items-center'>
-            <FaArrowLeft className=' size-10 opacity-50 cursor-pointer hover:opacity-100' onClick={slideLeft}/>
-            <div id='slider' className='slider w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-8'>
+            <FaArrowLeft className=' size-10 opacity-50 cursor-pointer hover:opacity-100' onClick={()=>{handleScroll(- 700)}}/>
+            <div id='slider' ref={containerRef} className=' w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-8'>
                 <Stack direction='row' >
                     {data.map((item)=> (
                         <Box 
@@ -100,7 +108,7 @@ const HorizontalScrollbar = ({data, bodyPart, setBodyPart, isBodyParts}) => {
                     )}
                 </Stack>
             </div>
-            <FaArrowRight className='size-10 opacity-50 cursor-pointer hover:opacity-100' onClick={slideRight}/>
+            <FaArrowRight className='size-10 opacity-50 cursor-pointer hover:opacity-100' onClick={()=>{handleScroll(+ 700)}}/>
         </div>               
     )
 }
