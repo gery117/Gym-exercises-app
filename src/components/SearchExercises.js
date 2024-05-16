@@ -40,8 +40,22 @@ const SearchExercises = ( { setExercises, bodyPart, setBodyPart }) => {
       setSearch('')
       setExercises(searchedExercises);
     }
+    else{
+      <Typography>
+        Sorry Exercise not found!
+      </Typography>
+    }
   }
 
+  const scrollToPosition = () => {
+    window.scrollTo({ top: 1800, behavior: "smooth" });
+  }
+
+  const handleCombinedClick = () => {
+    handleSearch(); 
+    scrollToPosition();
+  }
+  
   return (
     <Stack alignItems= "center" mt="37px" justifyContent="center" p="20px">
       <Typography fontWeight={700} 
@@ -81,7 +95,7 @@ const SearchExercises = ( { setExercises, bodyPart, setBodyPart }) => {
             position: "absolute",
             right: '0'
           }}
-          onClick={handleSearch}
+          onClick={handleCombinedClick}
         >
           Search
         </Button>

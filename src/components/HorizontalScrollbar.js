@@ -85,7 +85,7 @@ const HorizontalScrollbar = ({data, bodyPart, setBodyPart, isBodyParts}) => {
     return (
         <div className='relative flex items-center'>
             <FaArrowLeft className=' size-10 opacity-50 cursor-pointer hover:opacity-100' onClick={()=>{handleScroll(- 700)}}/>
-            <div id='slider' ref={containerRef} className=' w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide px-8'>
+            <div id='slider' ref={containerRef} className=' w-full h-full overflow-x-scroll scroll scroll-smooth scrollbar-hide px-8 '>
                 <Stack direction='row' >
                     {data.map((item)=> (
                         <Box 

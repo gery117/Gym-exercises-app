@@ -23,26 +23,27 @@ const HeroBanner = () => {
             <Typography fontSize="26px" lineHeight="35px" mb={4}>
                 Check out the most effective exercises
             </Typography>
-            <Button variant="contained" 
-            color= "error" 
-            href='#exercises'
-            sx={{backgroundColor: '#ff2625', padding: '10px'}}
-            >
+            <Button 
+                variant="contained" 
+                color= "error" 
+                href='#exercises'
+                sx={{backgroundColor: '#ff2625', padding: '10px'}}
+                >
                 Explore Exercises
             </Button>
-            <Typography 
-            fontWeight={600} 
-            color="#ff2625"
-            sx={{
-                opacity: 0.1,
-                display: {lg: 'block', xs: 'none'},
-                rotate: '45deg',
-            }}
-            fontSize="170px"
+            <Typography
+                fontWeight={600} 
+                color="rgba(255, 38, 37, 0.3)"
+                fontSize="150px"
+                paddingBottom='50px'
+                style={{ transform: 'rotate(45deg)' }}
             >
-                exercise <br/> boi!
+                exercise boi!
             </Typography>
-            <img src= {HeroBannerImage} alt='banner' className='hero-banner-img'/>
+            <img 
+                src= {HeroBannerImage} 
+                alt='banner' 
+                className='hero-banner-img'/>
         </Box>
     )
 }
